@@ -20,7 +20,11 @@
  *   - The script requires a valid logged-in session. It returns a
  *     JSON error message if the API cannot be reached.
  */
-
+session_set_cookie_params([
+    'httponly' => true,
+    'secure'   => true,
+    'samesite' => 'Strict'
+]);
 session_start();
 if (!isset($_SESSION['username'])) {
     header('Location: ./login.php');

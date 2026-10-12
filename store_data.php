@@ -13,6 +13,11 @@
  *   - Reads `settings.json` to determine whether to try an
  *     Azure upload (SAS token) or fallback to local filesystem.
  */
+session_set_cookie_params([
+    'httponly' => true,
+    'secure'   => true,
+    'samesite' => 'Strict'
+]);
 
 session_start();
 if (!isset($_SESSION['username'])) {

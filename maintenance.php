@@ -12,7 +12,11 @@
  *   - This is intentionally simple and file-backed for ease of local
  *     development; in production you would likely store notes in a DB.
  */
-
+session_set_cookie_params([
+    'httponly' => true,
+    'secure'   => true,
+    'samesite' => 'Strict'
+]);
 session_start();
 if (!isset($_SESSION['username'])) {
     http_response_code(401);

@@ -19,7 +19,11 @@
  *   - Uses Azure REST endpoints to list blobs and fetch blob content.
  *   - Falls back to local storage when Azure is unavailable.
  */
-
+session_set_cookie_params([
+    'httponly' => true,
+    'secure'   => true,
+    'samesite' => 'Strict'
+]);
 session_start();
 if (!isset($_SESSION['username'])) {
     http_response_code(401);
